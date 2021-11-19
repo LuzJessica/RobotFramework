@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20211118 21:54:45.916" rpa="false" schemaversion="2">
+<suite id="s1" name="TestSitePractice" source="C:\Users\Alex\RobotFramework\TestSitePracticeSuite\tests\TestSitePractice.robot">
+<test id="s1-t1" name="Test Case 01: Search existent product">
+<kw name="Open Website" library="Resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211118 21:54:46.185" level="INFO">Opening browser 'chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20211118 21:54:46.185" endtime="20211118 21:54:47.370"/>
+</kw>
+<status status="PASS" starttime="20211118 21:54:46.185" endtime="20211118 21:54:47.370"/>
+</kw>
+<kw name="Access the website homepage" library="Resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>http://automationpractice.com</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211118 21:54:47.372" level="INFO">Opening url 'http://automationpractice.com'</msg>
+<status status="PASS" starttime="20211118 21:54:47.372" endtime="20211118 21:54:53.326"/>
+</kw>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>My Store</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211118 21:54:53.333" level="INFO">Page title is 'My Store'.</msg>
+<status status="PASS" starttime="20211118 21:54:53.326" endtime="20211118 21:54:53.333"/>
+</kw>
+<status status="PASS" starttime="20211118 21:54:47.371" endtime="20211118 21:54:53.333"/>
+</kw>
+<kw name="Type the name of the product &quot;Blouse&quot; in the search field" library="Resource" sourcename="Type the name of the product &quot;${PRODUCT}&quot; in the search field">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=search_query_top</arg>
+<arg>${PRODUCT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211118 21:54:53.335" level="INFO">Typing text 'Blouse' into text field 'id=search_query_top'.</msg>
+<status status="PASS" starttime="20211118 21:54:53.335" endtime="20211118 21:54:53.439"/>
+</kw>
+<status status="PASS" starttime="20211118 21:54:53.334" endtime="20211118 21:54:53.439"/>
+</kw>
+<kw name="Click on search button" library="Resource">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>name=submit_search</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20211118 21:54:53.441" level="INFO">Clicking element 'name=submit_search'.</msg>
+<status status="PASS" starttime="20211118 21:54:53.440" endtime="20211118 21:54:53.497"/>
+</kw>
+<status status="PASS" starttime="20211118 21:54:53.440" endtime="20211118 21:54:53.497"/>
+</kw>
+<status status="PASS" starttime="20211118 21:54:46.184" endtime="20211118 21:54:53.498"/>
+</test>
+<status status="PASS" starttime="20211118 21:54:45.918" endtime="20211118 21:54:53.500"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="TestSitePractice">TestSitePractice</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
