@@ -5,8 +5,8 @@
 
 
 Resource         ../resource/Resource.robot
-Test Setup       Open Browser
-Test Teardown    Close Browser
+Test Setup       Open Website
+Test Teardown    Close Website
 
 
 *** Test Case ***
@@ -20,3 +20,18 @@ Scenario 02: Search inexistent product
   Given then I'm in the website homepage
   When I search for the product "Whatever"
   Then the error message "No results were found for your search "Whatever"" should be returned
+
+*** Keywords ***
+
+Given then I'm in the website homepage
+   Access the website homepage
+
+When I search for the product "${EXISTENT_PRODUCT}"
+  Type the name of the product "${EXISTENT_PRODUCT}" in the search field
+  Click on search button
+
+Then the product "${EXISTENT_PRODUCT}" should be listed
+  Check if the product "Blouse" was returned in the list
+
+Then the error message "No results were found for your search "Whatever"" should be returned
+  Check if the error message "No results were found for your search "${INEXISTENT_PRODUCT}" was returned
