@@ -10,15 +10,7 @@ ${SUB_CATEGORY}                  Summer Dresses
 ${PRODUCT_TO_ADD_IN_CAR}         t-shirt
 ${PRODUCT_ADDED_TO_CAR_MESSAGE}  Product successfully added to your shopping cart
 ${EMPTY_CART_MESSAGE}            Your shopping cart is empty.
-${EMAIL}                         atttwwww2tcv33x@gmail.br
-${FIRST_NAME}                    Alex
-${LAST_NAME}                     Luz
-${PASSWORD}                      123456
-${ADDRESS}                        Rua Chucri Zogbi
-${CITY}                          Americana
-${STATE}                         SP
-${ZIPCODE}                       12345
-${MOBILE_PHONE}                  99735-1423
+&{MANDATORY_FIELDS}              email=123645@hotmail.com  first_name=Jessica  last_name=Luz  password=123456  address=Rua Chucri Zogbi  city=Americana  zipcode=12345  mobile_phone=997351423
 
 *** Keywords ***
 #### SETUP AND TEARDOWN ####
@@ -91,7 +83,7 @@ And that I click in the "Sign in" button going top right
     Element Should Be Visible    xpath=//h1[@class='page-heading']
 
 And that I insert an email
-    Input Text    xpath=//div/input[@id='email_create']    ${EMAIL}
+    Input Text    xpath=//div/input[@id='email_create']    ${MANDATORY_FIELDS.email}
 
 And click in the "Create an account" button
     Click Element    id=SubmitCreate
@@ -99,23 +91,23 @@ And click in the "Create an account" button
 
 And fill the mandatory fields
    Wait Until Element Is Visible    xpath=//h3[normalize-space()='Your personal information']
-   Input Text       id=customer_firstname    ${FIRST_NAME}
-   Input Text       id=customer_lastname     ${LAST_NAME}
-   Input Text       id=passwd                ${PASSWORD}
-   Input Text       id=firstname             ${FIRST_NAME}
-   Input Text       id=lastname              ${LAST_NAME}
-   Input Text       id=address1              ${ADDRESS}
-   Input Text       id=city                  ${CITY}
+   Input Text       id=customer_firstname    ${MANDATORY_FIELDS.first_name}
+   Input Text       id=customer_lastname     ${MANDATORY_FIELDS.last_name}
+   Input Text       id=passwd                ${MANDATORY_FIELDS.password}
+   Input Text       id=firstname             ${MANDATORY_FIELDS.first_name}
+   Input Text       id=lastname              ${MANDATORY_FIELDS.last_name}
+   Input Text       id=address1              ${MANDATORY_FIELDS.address}
+   Input Text       id=city                  ${MANDATORY_FIELDS.city}
    Click Element    id=id_state
    Click Element    css=select[id='id_state'] option[value='1']
-   Input Text       id=postcode               ${ZIPCODE}
+   Input Text       id=postcode               ${MANDATORY_FIELDS.zipcode}
    Click Element    id=id_country
    Click Element    css=select[id='id_country'] option[value='21']
-   Input Text       id=phone_mobile         ${MOBILE_PHONE}
+   Input Text       id=phone_mobile         ${MANDATORY_FIELDS.mobile_phone}
 
 When I click in the "Register" button to finish the registration
   Click Element    id=submitAccount
 
 Then a management page of the account should appears
   Wait Until Element Is Visible    xpath=//h1[@class='page-heading']
-  Element Text Should Be    css=a.account    ${FIRST_NAME} ${LAST_NAME}
+  Element Text Should Be    css=a.account    ${MANDATORY_FIELDS.first_name} ${MANDATORY_FIELDS.last_name}
